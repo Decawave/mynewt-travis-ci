@@ -39,7 +39,8 @@ case $TEST in
     ;;
   "BUILD_TARGETS")
     base=$(basename $TRAVIS_REPO_SLUG)
-    target_list=$(ls targets/${base}-targets)
+    #target_list=$(ls targets/${base}-targets)
+    target_list=$(ls targets/)
     ;;
   "BUILD_BLINKY")
     target_list=$(ls ${TRAVIS_BUILD_DIR}/hw/bsp)
