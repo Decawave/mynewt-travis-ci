@@ -17,7 +17,7 @@
 # under the License.
 #
 
-project.name: "mynewt-dw1000-apps"
+project.name: "mynewt-dw1000-core"
 
 project.repositories:
     - apache-mynewt-core
@@ -44,7 +44,7 @@ repository.mynewt-dw1000-apps:
     type: github
     vers: 0-dev
     user: decawave
-    repo: mynewt-dw1000-core
+    repo: mynewt-dw1000-apps
 
 repository.mynewt-timescale-lib:
     type: github
