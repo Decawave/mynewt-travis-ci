@@ -22,7 +22,8 @@ project.name: "mynewt-dw1000-core"
 project.repositories:
     - apache-mynewt-core
     - apache-mynewt-nimble
-    - mynewt-dw1000-apps
+    - mcuboot
+#XX    - mynewt-dw1000-apps
     - mynewt-timescale-lib
 
 # Use github's distribution mechanism for core ASF libraries.
@@ -34,17 +35,23 @@ repository.apache-mynewt-core:
     user: apache
     repo: mynewt-core
 
+repository.mcuboot:
+    type: github
+    user: JuulLabs-OSS
+    repo: mcuboot
+    vers: 1.0.0
+    
 repository.apache-mynewt-nimble:
     type: github
     vers: 1.0.0
     user: apache
     repo: mynewt-nimble
     
-repository.mynewt-dw1000-apps:
-    type: github
-    vers: 0-dev
-    user: decawave
-    repo: mynewt-dw1000-apps
+#XXrepository.mynewt-dw1000-apps:
+#XX    type: github
+#XX    vers: 0-dev
+#XX    user: decawave
+#XX    repo: mynewt-dw1000-apps
 
 repository.mynewt-timescale-lib:
     type: github
