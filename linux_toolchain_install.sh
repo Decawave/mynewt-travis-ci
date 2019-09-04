@@ -23,6 +23,7 @@ GCC_URL=https://developer.arm.com/-/media/Files/downloads/gnu-rm/8-2018q4/gcc-ar
 GCC_BASE=gcc-arm-none-eabi-8-2018-q4-major
 
 mkdir -p $TOOLCHAIN_PATH
+mkdir ~/bin
 
 if [ ! -s ${TOOLCHAIN_PATH}/$GCC_BASE/bin/arm-none-eabi-gcc ]; then
     wget -O ${TOOLCHAIN_PATH}/${GCC_BASE}.tar.bz2 $GCC_URL
@@ -34,3 +35,19 @@ for i in ${TOOLCHAIN_PATH}/${GCC_BASE}/bin/arm-none-eabi-* ; do
     rm -f  ~/bin/${i##*/}
     ln -s $i ~/bin/${i##*/}
 done
+
+GCC_URL=https://developer.arm.com/-/media/Files/downloads/gnu-a/8.3-2019.03/binrel/gcc-arm-8.3-2019.03-x86_64-aarch64-linux-gnu.tar.xz
+GCC_BASE=gcc-arm-8.3-2019.03-x86_64-aarch64-linux-gnu
+
+
+if [ ! -s ${TOOLCHAIN_PATH}/$GCC_BASE/bin/aarch64-linux-gnu-gcc ]; then
+    wget -O ${TOOLCHAIN_PATH}/${GCC_BASE}.tar.xz $GCC_URL
+    tar xf ${TOOLCHAIN_PATH}/${GCC_BASE}.tar.xz -C $TOOLCHAIN_PATH
+    ${TOOLCHAIN_PATH}/$GCC_BASE/bin/aarch64-linux-gnu-gcc --version
+fi
+
+for i in ${TOOLCHAIN_PATH}/${GCC_BASE}/bin/aarch64-linux-gnu-* ; do
+    rm -f  ~/bin/${i##*/}
+    ln -s $i ~/bin/${i##*/}
+done
+
