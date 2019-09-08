@@ -1,0 +1,3 @@
+syscfg.vals:
+#    TWR_SS_RX_TIMEOUT: 0x1000
+#    TWR_SS_TX_HOLDOFF: 0x300

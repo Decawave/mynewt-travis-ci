@@ -1,0 +1,3 @@
+target.app: "@mynewt-dw1000-apps/apps/twr_node_tdma"
+target.bsp: "@mynewt-dw1000-core/hw/bsp/lps2nano_ncbwifi"
+target.build_profile: debug

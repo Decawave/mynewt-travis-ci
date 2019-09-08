@@ -1,0 +1,3 @@
+syscfg.vals:
+    LOG_LEVEL: 1
+    UWBCFG_DEF_ROLE: "\"0x4\""

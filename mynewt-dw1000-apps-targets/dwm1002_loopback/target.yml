@@ -1,0 +1,3 @@
+target.app: "@mynewt-dw1000-apps/apps/loopback"
+target.bsp: "@mynewt-dw1000-core/hw/bsp/dwm1002"
+target.build_profile: debug
