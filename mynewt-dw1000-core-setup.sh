@@ -2,8 +2,9 @@
 
 # Manually install the apps repo to avoid circular references
 git clone https://github.com/decawave/mynewt-dw1000-apps repos/mynewt-dw1000-apps
-CORE_BRANCH=$(git status -bs|head -1|awk '{print $2}')
 cd repos/mynewt-dw1000-apps
-git checkout -q ${CORE_BRANCH}
+# Try to checkout the same branch as core from apps if it exists
+git checkout -q ${TRAVIS_BRANCH}
+echo -n "Apps branch:"
 git status -bs
 cd -
