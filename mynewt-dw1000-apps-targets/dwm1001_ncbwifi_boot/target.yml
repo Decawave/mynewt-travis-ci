@@ -1,0 +1,4 @@
+### Target: targets/lps2mini_boot
+target.app: "@apache-mynewt-core/apps/boot"
+target.bsp: "@mynewt-dw1000-core/hw/bsp/dwm1001_ncbwifi"
+target.build_profile: "optimized"

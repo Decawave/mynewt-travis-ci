@@ -1,0 +1,3 @@
+target.app: "@mynewt-dw1000-apps/apps/listener"
+target.bsp: "@mynewt-dw1000-core/hw/bsp/dwm1001_ncbwifi"
+target.build_profile: "debug"
