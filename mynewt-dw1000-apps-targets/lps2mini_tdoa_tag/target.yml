@@ -1,0 +1,3 @@
+target.app: "@mynewt-dw1000-apps/apps/tdoa_tag"
+target.bsp: "@mynewt-dw1000-core/hw/bsp/lps2mini"
+target.build_profile: debug
