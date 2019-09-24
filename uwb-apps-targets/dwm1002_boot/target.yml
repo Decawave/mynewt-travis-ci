@@ -1,0 +1,4 @@
+### Target: targets/dwm1002_boot
+target.app: "@apache-mynewt-core/apps/boot"
+target.bsp: "@decawave-uwb-core/hw/bsp/dwm1002"
+target.build_profile: "optimized"

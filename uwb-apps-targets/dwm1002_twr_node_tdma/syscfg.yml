@@ -1,0 +1,7 @@
+syscfg.vals:
+    CIR_ENABLED: 1
+    DW1000_DEVICE_0: 1
+    DW1000_DEVICE_1: 1
+    LOG_LEVEL: 1
+    USE_DBLBUFFER: 0
+    UWBCFG_DEF_ROLE: "\"0x1\""

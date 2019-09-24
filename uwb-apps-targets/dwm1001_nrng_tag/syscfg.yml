@@ -1,0 +1,8 @@
+syscfg.vals:
+    CONSOLE_RTT: 0
+    CONSOLE_UART: 1
+    NODE_END_SLOT_ID: 7
+    NODE_START_SLOT_ID: 0
+    NRNG_NFRAMES: 16
+    NRNG_NNODES: 8
+    NRNG_NTAGS: 4

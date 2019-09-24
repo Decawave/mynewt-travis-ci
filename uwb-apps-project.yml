@@ -17,14 +17,12 @@
 # under the License.
 #
 
-project.name: "decawave-uwb-core"
+project.name: "decawave-uwb-apps"
 
 project.repositories:
     - apache-mynewt-core
     - apache-mynewt-nimble
-    - mcuboot
-#XX    - decawave-uwb-apps
-    - mynewt-timescale-lib
+    - decawave-uwb-core
 
 # Use github's distribution mechanism for core ASF libraries.
 # This provides mirroring automatically for us.
@@ -35,26 +33,14 @@ repository.apache-mynewt-core:
     user: apache
     repo: mynewt-core
 
-repository.mcuboot:
-    type: github
-    user: JuulLabs-OSS
-    repo: mcuboot
-    vers: 1.0.0
-    
 repository.apache-mynewt-nimble:
     type: github
     vers: 1.0.0
     user: apache
     repo: mynewt-nimble
     
-#XXrepository.decawave-uwb-apps:
-#XX    type: git
-#XX    vers: 0-dev
-#XX    user: decawave
-#XX    repo: uwb-apps
-
-repository.mynewt-timescale-lib:
-    type: github
+repository.decawave-uwb-core:
+    type: git
     vers: 0-dev
     user: decawave
-    repo: mynewt-timescale-lib
+    repo: uwb-core

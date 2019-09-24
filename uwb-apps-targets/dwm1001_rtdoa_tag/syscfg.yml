@@ -1,0 +1,4 @@
+syscfg.vals:
+    CONSOLE_UART_BAUD: 115200
+    CIR_ENABLED: 1
+    USE_DBLBUFFER: 0
