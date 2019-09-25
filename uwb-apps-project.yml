@@ -44,4 +44,4 @@ repository.decawave-uwb-core:
     vers: 0-dev
     user: decawave
     repo: uwb-core
-    url: 'git@github.com:Decawave/uwb-core.git'
+    url: 'https://github.com/decawave/uwb-core'
