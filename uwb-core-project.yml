@@ -52,6 +52,7 @@ repository.apache-mynewt-nimble:
 #XX    vers: 0-dev
 #XX    user: decawave
 #XX    repo: uwb-apps
+#XX    url: 'git@github.com:Decawave/uwb-apps.git'
 
 repository.mynewt-timescale-lib:
     type: github
