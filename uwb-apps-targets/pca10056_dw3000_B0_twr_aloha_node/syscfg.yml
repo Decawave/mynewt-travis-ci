@@ -1,0 +1,4 @@
+syscfg.vals:
+    CONSOLE_UART: 1
+    CONSOLE_RTT: 0
+    USE_SPI3_MASTER: 0
