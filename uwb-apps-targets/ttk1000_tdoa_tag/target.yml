@@ -1,0 +1,3 @@
+target.app: "@decawave-uwb-apps/apps/tdoa_tag"
+target.bsp: "@decawave-uwb-core/hw/bsp/ttk1000"
+target.build_profile: debug

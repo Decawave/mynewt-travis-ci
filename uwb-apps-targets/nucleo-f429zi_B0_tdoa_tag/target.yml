@@ -1,0 +1,3 @@
+target.app: "@decawave-uwb-apps/apps/tdoa_tag"
+target.bsp: "@decawave-uwb-core/hw/bsp/nucleo-f429zi_B0"
+target.build_profile: debug

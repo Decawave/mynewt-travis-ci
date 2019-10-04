@@ -1,0 +1,7 @@
+syscfg.vals:
+    CONSOLE_UART_BAUD: 460800
+    CIR_ENABLED: 1
+    USE_DBLBUFFER: 0
+    BLE_ENABLED: 0
+    CIR_OFFSET:  4
+    CIR_SIZE:    16
