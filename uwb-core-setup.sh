@@ -8,3 +8,5 @@ git checkout -q ${TRAVIS_BRANCH}
 echo -n "Apps branch:"
 git status -bs
 cd -
+echo -n "Core branch:"
+git status -bs
