@@ -1,4 +1,4 @@
 ### Target: targets/lps2mini_boot
-target.app: "@apache-mynewt-core/apps/boot"
+target.app: "@mcuboot/boot/mynewt"
 target.bsp: "@decawave-uwb-core/hw/bsp/pca10056_dw3000_B0"
 target.build_profile: "optimized"
