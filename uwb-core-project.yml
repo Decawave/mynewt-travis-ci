@@ -22,7 +22,6 @@ project.name: "decawave-uwb-core"
 project.repositories:
     - apache-mynewt-core
     - apache-mynewt-nimble
-    - mcuboot
 #XX    - decawave-uwb-apps
     - mynewt-timescale-lib
 
@@ -35,12 +34,6 @@ repository.apache-mynewt-core:
     user: apache
     repo: mynewt-core
 
-repository.mcuboot:
-    type: github
-    user: JuulLabs-OSS
-    repo: mcuboot
-    vers: 1.0.0
-    
 repository.apache-mynewt-nimble:
     type: github
     vers: 1.2.0
