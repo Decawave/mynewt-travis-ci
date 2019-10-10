@@ -8,5 +8,7 @@ git checkout -q ${TRAVIS_BRANCH}
 echo -n "Apps branch:"
 git status -bs
 cd -
-echo -n "Core branch:"
-git status -bs
+# Apply Patches
+cd repos/apache-mynewt-core
+git apply ../../patches/apache-mynewt-core/mynewt_1_7_0*.patch
+cd -
