@@ -1,0 +1,6 @@
+syscfg.vals:
+    CONSOLE_UART: 1
+    CONSOLE_RTT: 0
+    BLE_ENABLED: 0
+    OS_DEBUG_MODE: 0
+    OS_MAIN_STACK_SIZE: 1024
