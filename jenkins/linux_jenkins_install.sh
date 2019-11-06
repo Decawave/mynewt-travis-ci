@@ -28,7 +28,7 @@ mkdir -p $JENKINS_BIN
 
 # Do not install ARM toolchain when running "newt test"
 if [ $TEST != "TEST_ALL" ]; then
-    source ${JENKINS_HOME}/ci/jenkins/linux_toolchain_install.sh
+    source ${JENKINS_CI}/jenkins/linux_toolchain_install.sh
 else
     # FIXME: should use update-alternatives here maybe?
     ln -s /usr/bin/gcc-7 ~/bin/gcc
