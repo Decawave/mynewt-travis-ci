@@ -17,7 +17,7 @@
 # specific language governing permissions and limitations
 # under the License.
 
-TOOLCHAIN_PATH=${JENKINS_HOME}/TOOLCHAIN
+TOOLCHAIN_PATH=${WORKSPACE}/.TOOLCHAIN
 
 GCC_URL=https://developer.arm.com/-/media/Files/downloads/gnu-rm/8-2018q4/gcc-arm-none-eabi-8-2018-q4-major-linux.tar.bz2
 GCC_BASE=gcc-arm-none-eabi-8-2018-q4-major
@@ -31,8 +31,8 @@ if [ ! -s ${TOOLCHAIN_PATH}/$GCC_BASE/bin/arm-none-eabi-gcc ]; then
 fi
 
 for i in ${TOOLCHAIN_PATH}/${GCC_BASE}/bin/arm-none-eabi-* ; do
-    rm -f  ${JENKINS_HOME_BIN}/${i##*/}
-    ln -s $i ${JENKINS_HOME_BIN}/${i##*/}
+    rm -f  ${JENKINS_BIN}/${i##*/}
+    ln -s $i ${JENKINS_BIN}/${i##*/}
 done
 
 GCC_URL=https://developer.arm.com/-/media/Files/downloads/gnu-a/8.3-2019.03/binrel/gcc-arm-8.3-2019.03-x86_64-aarch64-linux-gnu.tar.xz
@@ -46,8 +46,8 @@ if [ ! -s ${TOOLCHAIN_PATH}/$GCC_BASE/bin/aarch64-linux-gnu-gcc ]; then
 fi
 
 for i in ${TOOLCHAIN_PATH}/${GCC_BASE}/bin/aarch64-linux-gnu-* ; do
-    rm -f  ${JENKINS_HOME_BIN}/${i##*/}
-    ln -s $i ${JENKINS_HOME_BIN}/${i##*/}
+    rm -f  ${JENKINS_BIN}/${i##*/}
+    ln -s $i ${JENKINS_BIN}/${i##*/}
 done
 
 VER=$(arm-none-eabi-gcc --version|head -1|awk '{split($0,a," "); print a[9]}')

@@ -19,8 +19,8 @@
 
 echo "Doing Linux install"
 
-export JENKINS_HOME_BIN=${JENKINS_HOME}/bin
-mkdir -p $JENKINS_HOME_BIN
+export JENKINS_BIN=${WORKSPACE}/.bin
+mkdir -p $JENKINS_BIN
 
 # Install newt.
 #${JENKINS_HOME}/ci/jenkins/newt_install.sh
@@ -35,4 +35,4 @@ else
     ln -s /usr/bin/g++-7 ~/bin/g++
 fi
 
-export PATH=${JENKINS_HOME_BIN}:$PATH
+export PATH=${JENKINS_BIN}:$PATH

@@ -20,19 +20,19 @@
 rc=0
 case $TEST in
   "TEST_ALL")
-     ${JENKINS_HOME}/ci/jenkins/test_all.sh
+     ${JENKINS_CI}/jenkins/test_all.sh
      rc=$?
      ;;
   "BUILD_TARGETS")
-     ${JENKINS_HOME}/ci/jenkins/test_build_targets.sh
+     ${JENKINS_CI}/jenkins/test_build_targets.sh
      rc=$?
      ;;
   "BUILD_BLINKY")
-     ${JENKINS_HOME}/ci/jenkins/test_build_blinky.sh
+     ${JENKINS_CI}/jenkins/test_build_blinky.sh
      rc=$?
      ;;
   "BUILD_PORTS")
-     ${JENKINS_HOME}/ci/jenkins/build_ports.sh
+     ${JENKINS_CI}/jenkins/build_ports.sh
      rc=$?
      ;;
   *) exit 1
