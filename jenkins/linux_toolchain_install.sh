@@ -17,8 +17,6 @@
 # specific language governing permissions and limitations
 # under the License.
 
-TOOLCHAIN_PATH=${WORKSPACE}/.TOOLCHAIN
-
 GCC_URL=https://developer.arm.com/-/media/Files/downloads/gnu-rm/8-2018q4/gcc-arm-none-eabi-8-2018-q4-major-linux.tar.bz2
 GCC_BASE=gcc-arm-none-eabi-8-2018-q4-major
 

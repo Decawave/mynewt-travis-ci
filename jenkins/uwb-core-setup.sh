@@ -15,7 +15,7 @@ echo -n "Apps branch:"
 git status -bs
 cd -
 # Apply Patches
-cd repos/apache-mynewt-core
+cd ${WORKSPACE}/repos/apache-mynewt-core
 git checkout -- ./
 git apply ../../patches/apache-mynewt-core/mynewt_1_7_0*.patch
-cd -
+cd ${WORKSPACE}

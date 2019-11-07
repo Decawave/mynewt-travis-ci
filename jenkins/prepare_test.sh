@@ -32,6 +32,9 @@
 #       others that are running the same test.
 
 TOTAL_SETS=$1
+
+# Ensure the jenkins bin is in the path
+export PATH=${JENKINS_BIN}:$PATH
 export
 echo "TEST=${TEST}"
 case $TEST in

@@ -19,11 +19,10 @@
 
 echo "Doing Linux install"
 
-export JENKINS_BIN=${WORKSPACE}/.bin
 mkdir -p $JENKINS_BIN
 
 # Install newt.
-#${JENKINS_HOME}/ci/jenkins/newt_install.sh
+#${JENKINS_CI}/jenkins/newt_install.sh
 
 
 # Do not install ARM toolchain when running "newt test"
