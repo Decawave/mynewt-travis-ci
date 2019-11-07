@@ -19,6 +19,12 @@
 
 EXIT_CODE=0
 
+export
+# Check that the bin path is setup properly
+if [[ ! $PATH == *"$JENKINS_BIN"* ]];then
+    export PATH=${JENKINS_BIN}:$PATH
+fi
+
 TARGETS=$(cat ${WORKSPACE}/targets.txt)
 for target in ${TARGETS}; do
     echo "Building target=$target"
