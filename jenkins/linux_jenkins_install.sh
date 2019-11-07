@@ -20,10 +20,10 @@
 echo "Doing Linux install"
 
 mkdir -p $JENKINS_BIN
+export PATH=${JENKINS_BIN}:$PATH
 
 # Install newt.
 #${JENKINS_CI}/jenkins/newt_install.sh
-
 
 # Do not install ARM toolchain when running "newt test"
 if [ $TEST != "TEST_ALL" ]; then
@@ -34,4 +34,3 @@ else
     ln -s /usr/bin/g++-7 ~/bin/g++
 fi
 
-export PATH=${JENKINS_BIN}:$PATH
