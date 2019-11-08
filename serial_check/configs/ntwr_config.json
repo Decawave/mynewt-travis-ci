@@ -1,0 +1,125 @@
+{
+    "boards":[
+        {
+            "name" : "ntwr_master",
+            "board_class": "NtwrBoard",
+            "com_serial" : "DO01ZV2S",
+            "baudrate" : 1000000,
+            "debugger_serial" : 0,
+            "initial_reset" : 1,
+            "stats_timer_interval": 30,
+            "start_end_stats": ["ntwrbh", "lnrng"]
+        },
+        {
+            "name" : "ntwr_tag0",
+            "board_class": "NtwrBoard",
+            "com_serial" : "DO01Z190",
+            "baudrate" : 115200,
+            "debugger_serial" : 0,
+            "initial_reset" : 1,
+            "stats_timer_interval": 30,
+            "start_end_stats": ["ntwrbh", "lnrng"]
+        },
+        {
+            "name" : "ntwr_tag1",
+            "board_class": "NtwrBoard",
+            "com_serial" : "DO01ZUHU",
+            "baudrate" : 115200,
+            "debugger_serial" : 0,
+            "initial_reset" : 1,
+            "stats_timer_interval": 30,
+            "start_end_stats": ["ntwrbh", "lnrng"]
+        },
+        {
+            "name" : "ntwr_tag2",
+            "board_class": "NtwrBoard",
+            "com_serial" : "DO01Z2C5",
+            "baudrate" : 115200,
+            "debugger_serial" : 0,
+            "initial_reset" : 1,
+            "stats_timer_interval": 30,
+            "start_end_stats": ["ntwrbh", "lnrng"]
+        },
+        {
+            "name" : "ntwr_tag3",
+            "board_class": "NtwrBoard",
+            "com_serial" : "DO01ZN45",
+            "baudrate" : 115200,
+            "debugger_serial" : 0,
+            "initial_reset" : 1,
+            "stats_timer_interval": 30,
+            "start_end_stats": ["ntwrbh", "lnrng"]
+        },
+        {
+            "name" : "ntwr_anchor00",
+            "board_class": "NtwrBoard",
+            "com_serial" : "DO01ZUKX",
+            "baudrate" : 1000000,
+            "debugger_serial" : 0,
+            "initial_reset" : 1,
+            "stats_timer_interval": 30
+        },
+        {
+            "name" : "ntwr_anchor01",
+            "board_class": "NtwrBoard",
+            "com_serial" : "DO01YHNR",
+            "baudrate" : 1000000,
+            "debugger_serial" : 0,
+            "initial_reset" : 1,
+            "stats_timer_interval": 30
+        },
+        {
+            "name" : "ntwr_anchor02",
+            "board_class": "NtwrBoard",
+            "com_serial" : "DO01Z1L9",
+            "baudrate" : 1000000,
+            "debugger_serial" : 0,
+            "initial_reset" : 1,
+            "stats_timer_interval": 30
+        }
+    ],
+    "links": [
+        {
+            "src": "ntwr_master",
+            "dst": ["ntwr_tag0", "ntwr_tag1", "ntwr_anchor00", "ntwr_anchor01"],
+            "src_type": "error",
+            "dst_type": "dump"
+        },
+        {
+            "src": "ntwr_master",
+            "dst": ["ntwr_master", "ntwr_tag0", "ntwr_anchor00", "ntwr_anchor01", "ntwr_anchor02"],
+            "src_type": "error_tag_4a8c",
+            "dst_type": "dump"
+        },
+        {
+            "src": "ntwr_master",
+            "dst": ["ntwr_master", "ntwr_tag1", "ntwr_anchor00", "ntwr_anchor01", "ntwr_anchor02"],
+            "src_type": "error_tag_49a2",
+            "dst_type": "dump"
+        },
+        {
+            "src": "ntwr_master",
+            "dst": ["ntwr_master", "ntwr_tag2", "ntwr_anchor00", "ntwr_anchor01", "ntwr_anchor02"],
+            "src_type": "error_tag_4a09",
+            "dst_type": "dump"
+        }
+    ],
+    "sniffers": [
+        {
+            "address": "labdietpi",
+            "port": 2002
+        }
+    ],
+    "junk": [
+        {
+            "name" : "ntwr_tag1",
+            "board_class": "NtwrBoard",
+            "com_serial" : "DO01ZUHU",
+            "baudrate" : 115200,
+            "debugger_serial" : 0,
+            "initial_reset" : 1,
+            "stats_timer_interval": 30,
+            "start_end_stats": ["ntwrbh", "lnrng"]
+        }
+    ]
+}

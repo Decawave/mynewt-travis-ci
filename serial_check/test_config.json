@@ -1,0 +1,30 @@
+{
+    "boards":[
+        {
+            "name" : "ntwr_master",
+            "board_class": "NtwrBoard",
+            "com_serial" : "DO01ZV2S",
+            "baudrate" : 1000000,
+            "debugger_serial" : 0,
+            "initial_reset" : 0,
+            "stats_timer_interval": 30
+        },
+        {
+            "name" : "ntwr_tag0",
+            "board_class": "NtwrBoard",
+            "com_serial" : "DO01Z190",
+            "baudrate" : 115200,
+            "debugger_serial" : 0,
+            "initial_reset" : 1,
+            "stats_timer_interval": 30
+        }
+    ],
+    "links": [
+        {
+            "src": "ntwr_master",
+            "dst": ["ntwr_tag0"],
+            "src_type": "error",
+            "dst_type": "dump"
+        }
+    ]
+}

@@ -1,0 +1,44 @@
+{
+    "boards":[
+        {
+            "name" : "ntwr_master",
+            "com_serial" : "DO01ZV2S",
+            "baudrate" : 1000000,
+            "debugger_serial" : 0,
+            "initial_reset" : 0,
+            "stats_timer_interval": 30
+        },
+        {
+            "name" : "ntwr_tag0",
+            "com_serial" : "DO01Z190",
+            "baudrate" : 115200,
+            "debugger_serial" : 0,
+            "initial_reset" : 0,
+            "stats_timer_interval": 30
+        },
+        {
+            "name" : "ntwr_anchor00",
+            "com_serial" : "DO01ZUKX",
+            "baudrate" : 1000000,
+            "debugger_serial" : 0,
+            "initial_reset" : 0,
+            "stats_timer_interval": 30
+        },
+        {
+            "name" : "ntwr_anchor01",
+            "com_serial" : "DO01YHNR",
+            "baudrate" : 1000000,
+            "debugger_serial" : 0,
+            "initial_reset" : 0,
+            "stats_timer_interval": 30
+        }
+    ],
+    "links": [
+        {
+            "src": "ntwr_master",
+            "dst": ["ntwr_tag0", "ntwr_anchor00", "ntwr_anchor01"],
+            "src_type": "error",
+            "dst_type": "dump"
+        }
+    ]
+}
