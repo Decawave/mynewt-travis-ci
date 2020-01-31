@@ -1,4 +1,4 @@
-pkg.name: targets/nucleo-f429zi_B0_twr_node_tdma
+pkg.name: "targets/nucleo-f429zi_boot"
 pkg.type: target
 pkg.description: 
 pkg.author: 

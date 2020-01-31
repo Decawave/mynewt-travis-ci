@@ -1,3 +1,0 @@
-target.app: "@decawave-uwb-apps/apps/twr_node_tdma"
-target.bsp: "@decawave-uwb-core/hw/bsp/nucleo-f429zi_B0"
-target.build_profile: debug

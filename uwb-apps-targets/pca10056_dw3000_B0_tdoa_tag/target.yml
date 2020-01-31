@@ -1,3 +1,0 @@
-target.app: "@decawave-uwb-apps/apps/tdoa_tag"
-target.bsp: "@decawave-uwb-core/hw/bsp/pca10056_dw3000_B0"
-target.build_profile: debug

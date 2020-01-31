@@ -1,0 +1,3 @@
+target.app: apps/twr_tag_tdma
+target.bsp: "@decawave-uwb-core/hw/bsp/nucleo-f429zi"
+target.build_profile: debug
