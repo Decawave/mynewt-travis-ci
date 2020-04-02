@@ -45,6 +45,7 @@ is_blacklisted() {
     return 1
 }
 
+pwd
 TARGETS=$(cat ${TRAVIS_BUILD_DIR}/targets.txt)
 for unittest in ${TARGETS}; do
     # TODO: ignore tests that fail on Ubuntu 14.04
