@@ -66,7 +66,7 @@ for unittest in ${TARGETS}; do
     if [[ $NEWT_TEST_DEBUG == *"${unittest}"* ]]; then
         newt test -ldebug -v $unittest
     else
-        newt test -ldebug -v $unittest  # -q
+        newt test -q $unittest
     fi
 
     rc=$?
