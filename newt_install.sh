@@ -17,24 +17,30 @@
 # specific language governing permissions and limitations
 # under the License.
 
-export GOPATH=$HOME/gopath
+export GOPATH=${TOOLCHAIN_PATH}/gopath
 export GO111MODULE=on
 
 mkdir -p $HOME/bin $GOPATH || true
 
 go version
+if [ ! -s ${TOOLCHAIN_PATH}/gopath/bin/newt ]; then
+    echo "Building newt..."
+    for i in 1 2 3
+    do
+        go get mynewt.apache.org/newt/newt
+        [[ $? -eq 0 ]] && break
+        [[ $i -eq 3 ]] && exit 1
+        sleep 30
+    done
 
-for i in 1 2 3
-do
-   go get mynewt.apache.org/newt/newt
-   [[ $? -eq 0 ]] && break
-   [[ $i -eq 3 ]] && exit 1
-   sleep 30
-done
+    rm -rf $GOPATH/bin $GOPATH/pkg
 
-rm -rf $GOPATH/bin $GOPATH/pkg
+    go install mynewt.apache.org/newt/newt
+    [[ $? -ne 0 ]] && exit 1
+else
+    echo "Using existing newt"
+fi
 
-go install mynewt.apache.org/newt/newt
-[[ $? -ne 0 ]] && exit 1
-
-cp $GOPATH/bin/newt $HOME/bin
+rm -f $HOME/bin/newt
+ln -s ${TOOLCHAIN_PATH}/gopath/bin/newt $HOME/bin/newt
+newt version
