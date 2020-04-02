@@ -23,6 +23,20 @@ TARGETS=$(cat ${TRAVIS_BUILD_DIR}/targets.txt)
 for target in ${TARGETS}; do
     echo "Building target=$target"
 
+    if echo $target |grep -q "cmake_generic";then
+        make -f Makefile.cmake generic && make -C ./build_generic
+        rc=$?
+        [[ $rc -ne 0 ]] && EXIT_CODE=$rc
+        continue
+    fi
+
+    if echo $target |grep -q "cmake_cortex-a73";then
+        make -f Makefile.cmake cortex-a73 && make -C ./build_cortex-a73
+        rc=$?
+        [[ $rc -ne 0 ]] && EXIT_CODE=$rc
+        continue
+    fi
+
     # Without suppressing output, travis complains that the log is too big
     # Without output, travis terminates a job that doesn't print out anything in a few minutes
     newt build -q -l info $target

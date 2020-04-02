@@ -41,6 +41,8 @@ case $TEST in
     base=$(basename $TRAVIS_REPO_SLUG)
     #target_list=$(ls targets/${base}-targets)
     target_list=$(ls targets/)
+    target_list+=" cmake_generic"
+    target_list+=" cmake_cortex-a73"
     ;;
   "BUILD_BLINKY")
     target_list=$(ls ${TRAVIS_BUILD_DIR}/hw/bsp)
