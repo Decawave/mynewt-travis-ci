@@ -18,6 +18,7 @@
 # under the License.
 
 echo "Doing Linux install"
+export TOOLCHAIN_PATH=$HOME/TOOLCHAIN
 
 # Install newt.
 $HOME/ci/newt_install.sh
