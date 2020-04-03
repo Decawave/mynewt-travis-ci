@@ -23,6 +23,11 @@ TARGETS=$(cat ${TRAVIS_BUILD_DIR}/targets.txt)
 for target in ${TARGETS}; do
     echo "Building target=$target"
 
+    if echo $target |grep -q -e "^unittest\$";then
+        echo "Skipping dummy target unittest"
+        continue
+    fi
+
     if echo $target |grep -q "cmake_generic";then
         make -f Makefile.cmake generic && make -C ./build_generic
         rc=$?
