@@ -2,4 +2,4 @@ syscfg.vals:
     CONSOLE_RTT: 0
     CONSOLE_UART: 1
     NRANGES_ANCHOR: 1
-    UWB_WCS_ENABLED: 0
+    APP_USE_WCS: 0
