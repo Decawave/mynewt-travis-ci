@@ -1,0 +1,3 @@
+target.app: apps/streaming
+target.bsp: "@decawave-uwb-core/hw/bsp/dwm1001"
+target.build_profile: debug
