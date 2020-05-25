@@ -38,10 +38,10 @@ repository.apache-mynewt-nimble:
     vers: 1.2.0
     user: apache
     repo: mynewt-nimble
-    
+
 repository.decawave-uwb-core:
     type: git
     vers: 0-dev
     user: decawave
     repo: uwb-core
-    url: 'https://github.com/decawave/uwb-core'
+    url: 'git@github.com:Decawave/uwb-core.git'
