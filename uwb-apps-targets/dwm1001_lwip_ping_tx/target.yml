@@ -1,3 +1,0 @@
-target.app: "@decawave-uwb-apps/apps/lwip_ping_tx"
-target.bsp: "@decawave-uwb-core/hw/bsp/dwm1001"
-target.build_profile: debug

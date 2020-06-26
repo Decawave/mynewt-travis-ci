@@ -1,3 +1,0 @@
-syscfg.vals:
-    CONSOLE_RTT: 0
-    CONSOLE_UART: 1
