@@ -1,3 +1,0 @@
-target.app: "@decawave-uwb-apps/apps/openThreadApp"
-target.bsp: "@decawave-uwb-core/hw/bsp/dwm1002"
-target.build_profile: optimized
