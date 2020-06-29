@@ -1,0 +1,63 @@
+#
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+# 
+#  http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+#
+
+project.name: "decawave-uwb-core"
+
+project.repositories:
+    - apache-mynewt-core
+    - decawave-uwb-dw1000
+#XX    - decawave-uwb-apps
+#3K    - decawave-uwb-dw3000-c0
+    - mynewt-timescale-lib
+
+# Use github's distribution mechanism for core ASF libraries.
+# This provides mirroring automatically for us.
+#
+repository.apache-mynewt-core:
+    type: github
+    vers: 1.7.0
+    user: apache
+    repo: mynewt-core
+
+repository.decawave-uwb-dw1000:
+    type: git
+    vers: 0-dev
+    user: decawave
+    repo: uwb-dw1000
+    url: 'git@github.com:Decawave/uwb-dw1000.git'
+
+#XXrepository.decawave-uwb-apps:
+#XX    type: git
+#XX    vers: 0-dev
+#XX    user: decawave
+#XX    repo: uwb-apps
+#XX    url: 'git@github.com:Decawave/uwb-apps.git'
+
+#3K repository.decawave-uwb-dw3000-c0:                    # 3KAccess Only
+#3K     type: git                                         # 3KAccess Only
+#3K     vers: 0-dev                                       # 3KAccess Only
+#3K     user: decawave                                    # 3KAccess Only
+#3K     repo: uwb-dw3100-c0                               # 3KAccess Only
+#3K     url: 'git@github.com:Decawave/uwb-dw3100-c0.git'  # 3KAccess Only
+
+repository.mynewt-timescale-lib:
+    type: github
+    vers: 0-dev
+    user: decawave
+    repo: mynewt-timescale-lib
