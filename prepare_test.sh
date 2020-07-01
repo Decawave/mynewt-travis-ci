@@ -40,13 +40,12 @@ case $TEST in
   "BUILD_TARGETS")
     base=$(basename $TRAVIS_REPO_SLUG)
     #target_list=$(ls targets/${base}-targets)
-    target_list=""
+    target_list=$(ls targets/)
     if [ -e Makefile.cmake ];then
         # Add special cmake targets if they exist
         target_list+=" cmake_generic"
         target_list+=" cmake_cortex-a73"
     fi
-    target_list+=$(ls targets/)
     ;;
   "BUILD_BLINKY")
     target_list=$(ls ${TRAVIS_BUILD_DIR}/hw/bsp)
