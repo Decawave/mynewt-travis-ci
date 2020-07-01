@@ -6,7 +6,7 @@
 # to you under the Apache License, Version 2.0 (the
 # "License"); you may not use this file except in compliance
 # with the License.  You may obtain a copy of the License at
-# 
+#
 #  http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing,
@@ -21,8 +21,9 @@ project.name: "decawave-uwb-core"
 
 project.repositories:
     - apache-mynewt-core
-    - apache-mynewt-nimble
-#XX    - decawave-uwb-apps
+    - decawave-uwb-dw1000
+#XX     - decawave-uwb-apps
+#3K     - decawave-uwb-dw3000-c0
     - mynewt-timescale-lib
 
 # Use github's distribution mechanism for core ASF libraries.
@@ -34,18 +35,26 @@ repository.apache-mynewt-core:
     user: apache
     repo: mynewt-core
 
-repository.apache-mynewt-nimble:
-    type: github
-    vers: 1.2.0
-    user: apache
-    repo: mynewt-nimble
-    
-#XXrepository.decawave-uwb-apps:
-#XX    type: git
-#XX    vers: 0-dev
-#XX    user: decawave
-#XX    repo: uwb-apps
-#XX    url: 'git@github.com:Decawave/uwb-apps.git'
+repository.decawave-uwb-dw1000:
+    type: git
+    vers: 0-dev
+    user: decawave
+    repo: uwb-dw1000
+    url: 'git@github.com:Decawave/uwb-dw1000.git'
+
+#XX repository.decawave-uwb-apps:
+#XX     type: git
+#XX     vers: 0-dev
+#XX     user: decawave
+#XX     repo: uwb-apps
+#XX     url: 'git@github.com:Decawave/uwb-apps.git'
+
+#3K repository.decawave-uwb-dw3000-c0:                    # 3KAccess Only
+#3K     type: git                                         # 3KAccess Only
+#3K     vers: 0-dev                                       # 3KAccess Only
+#3K     user: decawave                                    # 3KAccess Only
+#3K     repo: uwb-dw3100-c0                               # 3KAccess Only
+#3K     url: 'git@github.com:Decawave/uwb-dw3100-c0.git'  # 3KAccess Only
 
 repository.mynewt-timescale-lib:
     type: github
