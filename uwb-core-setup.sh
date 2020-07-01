@@ -4,7 +4,9 @@
 git clone git@github.com:Decawave/uwb-apps repos/decawave-uwb-apps
 cd repos/decawave-uwb-apps
 # Try to checkout the same branch as core from apps if it exists
-git checkout -q ${TRAVIS_BRANCH}
+#git checkout -q ${TRAVIS_BRANCH}
+# TODO: undo following line
+git checkout -q nc_core_restructure
 echo -n "Apps branch:"
 git status -bs
 cd -
