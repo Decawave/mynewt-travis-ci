@@ -1,9 +1,0 @@
-syscfg.vals:
-    CIR_ENABLED: 1
-    CONSOLE_UART_BAUD: 460800
-    UWB_DEVICE_0: 1
-    UWB_DEVICE_1: 1
-    USE_DBLBUFFER: 0
-    CIR_NUM_SAMPLES: '"32"'
-    CIR_SIZE: 32
-    CIR_OFFSET: 12

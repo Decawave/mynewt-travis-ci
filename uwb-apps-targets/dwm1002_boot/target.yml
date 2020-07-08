@@ -1,4 +1,0 @@
-### Target: targets/dwm1002_boot
-target.app: "@mcuboot/boot/mynewt"
-target.bsp: "@decawave-uwb-core/hw/bsp/dwm1002"
-target.build_profile: "optimized"
