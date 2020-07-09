@@ -42,11 +42,10 @@ repository.decawave-uwb-dw1000:
     repo: uwb-dw1000
 
 #XX repository.decawave-uwb-apps:
-#XX     type: git
+#XX     type: github
 #XX     vers: 0-dev
 #XX     user: decawave
 #XX     repo: uwb-apps
-#XX     url: 'git@github.com:Decawave/uwb-apps.git'
 
 #3K repository.decawave-uwb-dw3000-c0:                    # 3KAccess Only
 #3K     type: git                                         # 3KAccess Only
