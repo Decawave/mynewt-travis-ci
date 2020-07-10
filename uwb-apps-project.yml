@@ -41,8 +41,13 @@ repository.apache-mynewt-nimble:
     repo: mynewt-nimble
 
 repository.decawave-uwb-core:
-    type: git
+    type: github
     vers: 0-dev
     user: decawave
     repo: uwb-core
-    url: 'git@github.com:Decawave/uwb-core.git'
+
+repository.decawave-uwb-dw1000:
+    type: github
+    vers: 0-dev
+    user: decawave
+    repo: uwb-dw1000
