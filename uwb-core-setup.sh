@@ -26,7 +26,7 @@ fi
 
 # Apply relevant patches to mynewt core
 cd repos/apache-mynewt-core
-MYNEWT_CORE_VERSION=$(git status |head -1|sed -e "s/HEAD detached at //"  -e "s/_tag//")
+MYNEWT_CORE_VERSION=$(git tag --points-at HEAD|tail -1|sed -e "s/_tag//")
 find ../../patches/apache-mynewt-core/ -name "${MYNEWT_CORE_VERSION}*" | while read name;do
     git apply $name;
 done
