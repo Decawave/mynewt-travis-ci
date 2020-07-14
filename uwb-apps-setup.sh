@@ -25,7 +25,7 @@ fi
 # Apply relevant patches to mynewt core
 cd repos/apache-mynewt-core
 MYNEWT_CORE_VERSION=$(git tag --points-at HEAD|tail -1|sed -e "s/_tag//")
-find ../../patches/apache-mynewt-core/ -name "${MYNEWT_CORE_VERSION}*" | while read name;do
+find ../decawave-uwb-core/patches/apache-mynewt-core/ -name "${MYNEWT_CORE_VERSION}*" | while read name;do
     git apply $name;
 done
 cd -
