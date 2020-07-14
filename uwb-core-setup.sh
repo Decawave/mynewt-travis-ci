@@ -10,7 +10,7 @@ git status -bs
 cd -
 
 # Try to checkout the same branch as core from drivers too
-if (( "${TRAVIS_BRANCH}" != "master" ));then
+if [ "${TRAVIS_BRANCH}" != "master" ];then
     if [ -d repos/decawave-uwb-dw1000 ];then
         cd repos/decawave-uwb-dw1000
         git checkout -q ${TRAVIS_BRANCH}

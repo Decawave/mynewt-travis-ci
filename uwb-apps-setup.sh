@@ -1,6 +1,6 @@
 #!/bin/bash -x
 
-if (( "${TRAVIS_BRANCH}" != "master" ));then
+if [ "${TRAVIS_BRANCH}" != "master" ];then
     cd repos/decawave-uwb-core
     # Try to checkout the same branch as core from apps if it exists
     git checkout -q ${TRAVIS_BRANCH}
