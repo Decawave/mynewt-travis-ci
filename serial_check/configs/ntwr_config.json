@@ -8,7 +8,7 @@
             "debugger_serial" : 0,
             "initial_reset" : 1,
             "stats_timer_interval": 30,
-            "start_end_stats": ["ntwrbh", "lnrng"]
+            "start_end_stats": ["ntwrbh", "lnrng", "mpool", "tasks"]
         },
         {
             "name" : "ntwr_tag0",
