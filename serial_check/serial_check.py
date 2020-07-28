@@ -79,7 +79,9 @@ for link in config['links']:
 ###########  Prepare test
 if args.target_path:
     for b in boards:
-        b.prepare(args.target_path)
+        if b.prepare(args.target_path) == False:
+            printf("## Error during prepare stage");
+            sys.exit(2)
 
 ###########  Start test
 sys.stderr.write("## Started at {}, {:d}s run\n".format(datetime.datetime.now(), args.duration))

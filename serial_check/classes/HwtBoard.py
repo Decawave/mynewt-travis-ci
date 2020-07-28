@@ -257,11 +257,12 @@ class HwtBoard:
         if not "debugger_serial" in self.cfg: return
         if not "target" in self.cfg: return
         if not "bl_target" in self.cfg: return
-        print(self.cfg)
-        cmd = ['nrfjprog','-f', 'NRF52', '-e', '-s', '{}'.format(self.cfg["debugger_serial"])]
-        print(" ".join(cmd))
-        erase_ret = subprocess.call(cmd, cwd=path)
-        bl_load_ret = subprocess.call(["newt", "load", "{}".format(self.cfg["bl_target"]), '--extrajtagcmd', "-select usb={}".format(self.cfg["debugger_serial"])], cwd=path)
-        load_ret = subprocess.call(["newt", "load", "{}".format(self.cfg["target"]), "--extrajtagcmd", "-select usb={}".format(self.cfg["debugger_serial"])], cwd=path)
-        return (erase_ret and bl_load_ret and load_ret)
+        print("Erasing and programming {}".format(self.cfg["name"]))
+        try:
+            erase_ret = subprocess.check_output(['nrfjprog','-f', 'NRF52', '-e', '-s', '{}'.format(self.cfg["debugger_serial"])], cwd=path).decode()
+            bl_load_ret = subprocess.check_output(["newt", "load", "{}".format(self.cfg["bl_target"]), '--extrajtagcmd', "-select usb={}".format(self.cfg["debugger_serial"])], cwd=path).decode()
+            load_ret = subprocess.check_output(["newt", "load", "{}".format(self.cfg["target"]), "--extrajtagcmd", "-select usb={}".format(self.cfg["debugger_serial"])], cwd=path).decode()
+        except:
+            return False
+        return True
 
