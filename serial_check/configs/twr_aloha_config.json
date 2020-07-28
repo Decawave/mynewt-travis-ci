@@ -1,0 +1,44 @@
+{
+    "boards":[
+        {
+            "name" : "aloha_0bad1",
+            "board_class": "TwrAlohaBoard",
+            "com_serial" : "000760000665",
+            "baudrate" : 115200,
+            "debugger_serial" : "760000665",
+            "target" : "dwm1001_twr_aloha_node",
+            "bl_target" : "dwm1001_boot",
+            "initial_reset" : 1,
+            "stats_timer_interval": 30,
+            "start_end_stats": ["tasks", "rng", "twr_ss"],
+            "check_codes": [{"id": "code_112", "name": "twr_ss"}, {"id": "code_116", "name": "twr_ss_ext"}, {"id": "code_11a", "name": "twr_ss"},{"id": "code_123", "name": "twr_ds"},{"id": "code_128", "name": "twr_ds_ext"}]
+        },
+        {
+            "name" : "aloha_0ca8",
+            "board_class": "TwrAlohaBoard",
+            "com_serial" : "000760000685",
+            "baudrate" : 115200,
+            "debugger_serial" : "760000685",
+            "target" : "dwm1001_twr_aloha_tag",
+            "bl_target" : "dwm1001_boot",
+            "initial_reset" : 1,
+            "stats_timer_interval": 30,
+            "start_end_stats": ["tasks", "rng", "twr_ss"],
+            "check_codes": [{"id": "code_112", "name": "twr_ss"}, {"id": "code_116", "name": "twr_ss_ext"}, {"id": "code_11a", "name": "twr_ss"},{"id": "code_123", "name": "twr_ds"},{"id": "code_128", "name": "twr_ds_ext"}]
+        }
+    ],
+    "links": [
+        {
+            "src": "aloha_0bad1",
+            "dst": ["aloha_0ca8"],
+            "src_type": "error",
+            "dst_type": "dump"
+        }
+    ],
+    "sniffers": [
+        {
+            "address": "labdietpi",
+            "port": 2002
+        }
+    ]
+}

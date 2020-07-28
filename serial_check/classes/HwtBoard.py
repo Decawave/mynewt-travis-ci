@@ -7,6 +7,7 @@ import time
 import json
 import serial
 import serial.threaded
+import subprocess
 import threading
 from serial.tools.list_ports import comports
 import subprocess
@@ -74,6 +75,7 @@ class HwtBoard:
             self.stats_timer_interval = self.cfg["stats_timer_interval"];
         self.stats_timer = threading.Timer(self.stats_timer_interval, self.stats_timer_expiry)
         self.start_timer = threading.Timer(0.1, self.start_timer_expiry)
+        self.end_timer = threading.Timer(0.1, self.end_timer_expiry)
 
     def json_serialise(self):
         s = "{"
@@ -124,7 +126,7 @@ class HwtBoard:
         self.event_cbs += [{"type": event_type, "func": cb}]
 
     def received_object(self, obj):
-        if not self.init_complete: return
+        if not self.init_complete or not self.running: return
         self.recv_objs.append({"t": self.time_cb(), "o": obj})
 
     def save_dev_stat(self, r):
@@ -137,6 +139,7 @@ class HwtBoard:
         self.stat_buf_name = None
 
     def received_line(self, line):
+        if not self.running: return
         trimline = line.strip()
         ticks = -1
         try:
@@ -183,7 +186,10 @@ class HwtBoard:
 
 
     def stat_dump(self, reason):
-        printf("No stat_dump implemented");
+        print("No stat_dump implemented");
+
+    def run_checks(self):
+        return (1, "No run_checks implemented");
 
     def start_end_stat_dump(self, reason):
         self.stat_dump(reason)
@@ -198,6 +204,15 @@ class HwtBoard:
         for c in cmds:
             self.linereader.write_line(c)
             time.sleep(0.05);
+
+    def end_timer_expiry(self):
+        print("{}: end timer".format(self.cfg['name']))
+        self.start_end_stat_dump("Shutdown")
+        time.sleep(1.0);
+        self.running = False
+        self.stats_timer.cancel()
+        self.proto.close()
+        print("{}: end timer done".format(self.cfg['name']))
 
     def start_timer_expiry(self):
         print("{}: start timer".format(self.cfg['name']))
@@ -218,6 +233,8 @@ class HwtBoard:
         time.sleep(0.05);
         self.linereader.write_line("\nimgr list")
         time.sleep(0.05);
+        self.linereader.write_line("\nconfig dump")
+        time.sleep(0.05);
         self.start_end_stat_dump("Startup")
         self.init_complete = True
 
@@ -234,8 +251,17 @@ class HwtBoard:
 
 
     def stop(self):
-        self.start_end_stat_dump("Shutdown")
-        time.sleep(1.0);
-        self.running = False
-        self.stats_timer.cancel()
-        self.proto.close()
+        self.end_timer.start()
+
+    def prepare(self, path):
+        if not "debugger_serial" in self.cfg: return
+        if not "target" in self.cfg: return
+        if not "bl_target" in self.cfg: return
+        print(self.cfg)
+        cmd = ['nrfjprog','-f', 'NRF52', '-e', '-s', '{}'.format(self.cfg["debugger_serial"])]
+        print(" ".join(cmd))
+        erase_ret = subprocess.call(cmd, cwd=path)
+        bl_load_ret = subprocess.call(["newt", "load", "{}".format(self.cfg["bl_target"]), '--extrajtagcmd', "-select usb={}".format(self.cfg["debugger_serial"])], cwd=path)
+        load_ret = subprocess.call(["newt", "load", "{}".format(self.cfg["target"]), "--extrajtagcmd", "-select usb={}".format(self.cfg["debugger_serial"])], cwd=path)
+        return (erase_ret and bl_load_ret and load_ret)
+

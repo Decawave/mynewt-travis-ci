@@ -49,7 +49,12 @@ class Sniffer(Thread):
 
     def run(self):
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        s.connect((self.address, self.port))
+        try:
+            s.connect((self.address, self.port))
+        except:
+            print("EE: Could not connect to Sniffer@{}:{}".format(self.address, self.port))
+            return
+
         buf = ""
         while (self.ok_to_run):
             buf += s.recv(256).decode('utf-8')

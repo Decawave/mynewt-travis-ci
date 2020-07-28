@@ -14,6 +14,7 @@ from socket import *
 
 from classes.HwtBoard import HwtBoard
 from classes.NtwrBoard import NtwrBoard
+from classes.TwrAlohaBoard import TwrAlohaBoard
 from classes.Sniffer import Sniffer
 
 start_t = 0;
@@ -26,6 +27,7 @@ parser.add_argument('config', metavar='config', default=None, nargs='?')
 parser.add_argument('-v', dest='verbose', action="count", default=0, help='increase verbosity')
 parser.add_argument('-d', dest='duration', action="store", type=int, default=60, help='Duration to log')
 parser.add_argument('-s', dest='save_results', action="store", type=str, default="", help='Save results')
+parser.add_argument('-t', dest='target_path', action="store", type=str, default="", help='=Path to newt project')
 
 args = parser.parse_args()
 
@@ -47,6 +49,8 @@ threads = []
 for boardcfg in config['boards']:
     if boardcfg["board_class"] == "NtwrBoard":
         b = NtwrBoard(boardcfg, verbose = args.verbose, time_cb=program_time)
+    elif boardcfg["board_class"] == "TwrAlohaBoard":
+        b = TwrAlohaBoard(boardcfg, verbose = args.verbose, time_cb=program_time)
     else: continue
     b.init_serial()
     boards.append(b)
@@ -68,9 +72,14 @@ for link in config['links']:
     for dst in link["dst"]:
         d = next((x for x in boards if x.cfg['name'] == dst), None)
         if dst == None: continue
-        print("{}({}) -> {}({})".format(link["src"], link["src_type"], dst, link["dst_type"]))
+        if (args.verbose > 0): print("# Link: {}({}) -> {}({})".format(link["src"], link["src_type"], dst, link["dst_type"]))
         src.add_event_cb(link["src_type"], d.stat_dump)
 
+
+###########  Prepare test
+if args.target_path:
+    for b in boards:
+        b.prepare(args.target_path)
 
 ###########  Start test
 sys.stderr.write("## Started at {}, {:d}s run\n".format(datetime.datetime.now(), args.duration))
@@ -94,7 +103,7 @@ except KeyboardInterrupt:
 
 print("\n#####################################")
 for b in boards:
-    b.save_dev_stat("shutdown")
+    #b.save_dev_stat("shutdown")
     b.stop()
 
 for t in threads:
@@ -132,6 +141,8 @@ for b in boards:
     print("{} {} ({}):".format(b.cfg['name'], b.board_id, b.image_version))
     print("  {}".format(b.stat))
     print("  Num err lines: {:d}".format(len(b.error_lines)))
+    (passed, check_result) = b.run_checks()
+    print("  Check results: {} - {}".format("Passed" if passed else "Failed", check_result))
     if (args.verbose<1): continue
     print("############################")
 
