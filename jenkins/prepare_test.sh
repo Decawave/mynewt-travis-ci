@@ -42,8 +42,13 @@ case $TEST in
     target_list=$(find ${WORKSPACE} -iname pkg.yml -exec grep -H "pkg\.type: *unittest" {} \; | cut -d: -f1 | sed s#/pkg.yml##g | sed s#^${WORKSPACE}/##g | grep -v "^repos/" | sort)
     ;;
   "BUILD_TARGETS")
-      target_list=$(find targets -iname pkg.yml -exec grep -H "pkg\.type:.*target" {} \;| cut -d: -f1 | sed s#/pkg.yml##g|sed s#[^/]*/##g|sort)
-    ;;
+      target_list=$(find targets -iname pkg.yml -exec grep -H "pkg\.type:.*target" {} \;| cut -d: -f1 | sed s#/pkg.yml##g|sed s#[^/]*/##g|sort|grep -v -e "^unittest\$")
+      if [ -e Makefile.cmake ];then
+          # Add special cmake targets if they exist
+          target_list+=" cmake_generic"
+          target_list+=" cmake_cortex-a73"
+      fi
+      ;;
   "BUILD_BLINKY")
     target_list=$(ls ${WORKSPACE}/hw/bsp)
     ;;
