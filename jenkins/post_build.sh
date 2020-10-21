@@ -20,11 +20,14 @@
 rc=0
 case $TEST in
   "BUILD_TARGETS")
-     echo "Nothing to do here yet"
-     rc=$?
-     ;;
-  *) exit 1
-     ;;
+      target_list=$(find ${WORKSPACE} -iname pkg.yml -exec grep -H "pkg\.type: *unittest" {} \; | cut -d: -f1 | sed s#/pkg.yml##g | sed s#^${WORKSPACE}/##g | grep -v "^repos/" | sort)
+      echo $target_list > ${WORKSPACE}/targets.txt
+      ${JENKINS_CI}/jenkins/test_all.sh
+
+      rc=$?
+      ;;
+  *)  exit 1
+      ;;
 esac
 
 exit $rc
